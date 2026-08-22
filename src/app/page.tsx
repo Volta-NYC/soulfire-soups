@@ -7,9 +7,10 @@ import { inspirations, menuItems, squareOrderUrl } from "@/lib/site-data"
 export default function HomePage() {
   return (
     <div>
-      <section className="relative overflow-hidden bg-[#fbf6ed] text-brand-ink">
-        <div className="pointer-events-none absolute right-0 top-28 hidden h-[520px] w-[520px] rounded-full bg-brand-gold/15 blur-3xl lg:block" />
-        <div className="mx-auto grid min-h-[calc(100vh-105px)] max-w-7xl items-center gap-10 px-6 py-20 lg:grid-cols-[1.03fr_0.97fr] lg:px-8">
+      <section className="brand-grain relative overflow-hidden bg-[#fbf6ed] pt-28 text-brand-ink">
+        <div className="pointer-events-none absolute right-0 top-0 hidden h-[640px] w-[640px] rounded-full bg-brand-gold/20 blur-3xl lg:block" />
+        <div className="pointer-events-none absolute -left-32 bottom-0 h-80 w-80 rounded-full bg-brand-red/10 blur-3xl" />
+        <div className="mx-auto grid max-w-7xl items-center gap-12 px-6 pb-20 pt-16 md:pb-24 lg:min-h-[820px] lg:grid-cols-[1.02fr_0.98fr] lg:px-8">
           <div className="relative z-10 max-w-2xl">
             <p className="mb-6 text-sm font-bold uppercase tracking-[0.22em] text-brand-gold">
               Small batch and soul-fired
@@ -34,22 +35,42 @@ export default function HomePage() {
             </div>
           </div>
 
-          <div className="relative z-10 mx-auto w-full max-w-[520px] lg:mt-28">
-            <Image
-              src="/brand/hero-soup.jpg"
-              alt="Steaming bowl of SoulFire soup with crusty bread"
-              width={520}
-              height={520}
-              className="aspect-square w-full rounded-[1.5rem] object-cover shadow-2xl"
-              priority
-            />
-            <div className="absolute -bottom-7 -left-7 hidden h-32 w-32 rounded-full bg-brand-red/10 md:block" />
+          <div className="relative z-10 mx-auto w-full max-w-[560px]">
+            <div className="relative rounded-[2rem] border border-brand-brown/15 bg-white/55 p-5 shadow-[0_25px_90px_rgba(90,62,44,0.18)] backdrop-blur">
+              <div className="aspect-square rounded-[1.55rem] bg-brand-brown p-8 text-brand-blush">
+                <div className="flex h-full flex-col justify-between">
+                  <div className="flex items-start justify-between gap-5">
+                    <Image
+                      src="/brand/soulfire-submark-gold.png"
+                      alt=""
+                      width={116}
+                      height={116}
+                      className="h-24 w-24 object-contain"
+                    />
+                    <div className="text-right text-xs font-bold uppercase tracking-[0.22em] text-brand-gold">
+                      Seasonal
+                      <br />
+                      Batch
+                    </div>
+                  </div>
+                  <div className="soup-orbit mx-auto aspect-square w-[68%] rounded-full shadow-[inset_0_0_0_18px_rgba(255,248,239,0.12)] [--soup-color:#cc2127]" />
+                  <div className="grid grid-cols-3 gap-3 text-center text-[0.68rem] font-bold uppercase tracking-[0.18em] text-brand-gold">
+                    <span>Roasted Roots</span>
+                    <span>Slow Simmer</span>
+                    <span>Fresh Heat</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div className="absolute -bottom-8 -left-8 hidden rounded-2xl bg-brand-red px-5 py-4 text-sm font-bold uppercase tracking-wide text-brand-blush shadow-xl md:block">
+              Order on Square
+            </div>
           </div>
         </div>
       </section>
 
       <section className="bg-[#fbf6ed] px-6 py-20 lg:px-8">
-        <Reveal className="mx-auto grid max-w-7xl gap-10 lg:grid-cols-[0.88fr_1.12fr]">
+        <Reveal className="mx-auto grid max-w-7xl gap-8 lg:grid-cols-[0.9fr_1.1fr]">
           <div>
             <p className="mb-4 text-sm font-bold uppercase tracking-[0.2em] text-brand-red">
               The soul behind the fire
@@ -80,7 +101,19 @@ export default function HomePage() {
         </Reveal>
       </section>
 
-      <section className="bg-brand-blush px-6 py-20 lg:px-8">
+      <section className="bg-brand-brown px-6 py-10 text-brand-blush lg:px-8">
+        <div className="mx-auto grid max-w-7xl gap-px overflow-hidden rounded-[1.5rem] border border-brand-blush/15 bg-brand-blush/15 md:grid-cols-4">
+          {["Small-batch", "Diasporic flavors", "Seasonal bowls", "Square ordering"].map((item) => (
+            <div key={item} className="bg-brand-brown/70 px-6 py-7">
+              <p className="text-sm font-bold uppercase tracking-[0.18em] text-brand-gold">
+                {item}
+              </p>
+            </div>
+          ))}
+        </div>
+      </section>
+
+      <section className="brand-grain bg-brand-blush px-6 py-20 lg:px-8">
         <div className="mx-auto max-w-7xl">
           <Reveal className="mb-10 flex flex-col gap-4 md:flex-row md:items-end md:justify-between">
             <div>
@@ -100,14 +133,18 @@ export default function HomePage() {
           </Reveal>
           <div className="grid gap-6 md:grid-cols-3">
             {menuItems.slice(0, 3).map((item) => (
-              <Reveal key={item.name} className="group overflow-hidden rounded-2xl bg-[#fbf6ed] shadow-sm">
-                <div className="aspect-square overflow-hidden">
+              <Reveal key={item.name} className="group overflow-hidden rounded-[1.35rem] border border-brand-brown/12 bg-[#fbf6ed] shadow-[0_18px_50px_rgba(90,62,44,0.10)] transition hover:-translate-y-1">
+                <div className="relative aspect-[1.12] overflow-hidden bg-brand-brown p-7">
+                  <div
+                    className="soup-orbit mx-auto aspect-square h-full rounded-full transition duration-500 group-hover:scale-[1.04]"
+                    style={{ "--soup-color": item.color } as React.CSSProperties}
+                  />
                   <Image
-                    src={item.image}
-                    alt={item.name}
-                    width={520}
-                    height={520}
-                    className="h-full w-full object-cover transition duration-500 group-hover:scale-[1.03]"
+                    src="/brand/soulfire-submark-white.png"
+                    alt=""
+                    width={84}
+                    height={84}
+                    className="absolute right-5 top-5 h-12 w-12 object-contain opacity-70"
                   />
                 </div>
                 <div className="p-6">
@@ -120,6 +157,16 @@ export default function HomePage() {
                   <p className="mt-4 text-sm leading-7 text-brand-brown/75">
                     {item.detail}
                   </p>
+                  <div className="mt-5 flex flex-wrap gap-2">
+                    {item.ingredients.map((ingredient) => (
+                      <span
+                        key={ingredient}
+                        className="rounded-full border border-brand-brown/10 bg-white/70 px-3 py-1 text-xs font-bold uppercase tracking-wide text-brand-brown/65"
+                      >
+                        {ingredient}
+                      </span>
+                    ))}
+                  </div>
                 </div>
               </Reveal>
             ))}
@@ -127,7 +174,7 @@ export default function HomePage() {
         </div>
       </section>
 
-      <section className="bg-brand-brown px-5 py-16 text-brand-blush lg:px-8">
+      <section className="bg-brand-brown px-6 py-20 text-brand-blush lg:px-8">
         <Reveal className="mx-auto grid max-w-7xl gap-10 lg:grid-cols-[0.9fr_1.1fr]">
           <div>
             <p className="mb-4 text-sm font-bold uppercase tracking-[0.2em] text-brand-gold">
@@ -150,8 +197,8 @@ export default function HomePage() {
         </Reveal>
       </section>
 
-      <section className="bg-brand-cream px-5 py-16 lg:px-8">
-        <Reveal className="mx-auto grid max-w-7xl items-center gap-10 border-y border-brand-brown/20 py-12 lg:grid-cols-[1fr_0.8fr]">
+      <section className="brand-grain bg-brand-cream px-6 py-20 lg:px-8">
+        <Reveal className="mx-auto grid max-w-7xl items-center gap-10 rounded-[1.5rem] border border-brand-brown/15 bg-white/45 p-8 shadow-[0_18px_60px_rgba(90,62,44,0.10)] backdrop-blur lg:grid-cols-[1fr_0.8fr] lg:p-12">
           <div>
             <p className="mb-4 text-sm font-bold uppercase tracking-[0.2em] text-brand-red">
               Gather around the pot

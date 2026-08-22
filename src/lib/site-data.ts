@@ -11,28 +11,32 @@ export const menuItems = [
   {
     name: "Heritage Peanut Stew",
     tag: "Signature",
-    image: "/brand/soup-peanut.jpg",
+    color: "#d99b2d",
+    ingredients: ["roasted peanut", "sweet potato", "bird's eye chili"],
     detail:
       "Roasted peanuts, sweet potatoes, greens, aromatics, and a gentle chile warmth. Vegan and gluten-free.",
   },
   {
     name: "Smoked Jollof Lentil",
     tag: "Hearty",
-    image: "/brand/soup-jollof.jpg",
+    color: "#cc2127",
+    ingredients: ["red lentil", "tomato", "smoked spice"],
     detail:
       "Split red lentils simmered with tomato, ginger, smoked paprika, and jollof-inspired seasoning.",
   },
   {
     name: "Gumbo Z'Herbes",
     tag: "Chef's choice",
-    image: "/brand/soup-gumbo.jpg",
+    color: "#366834",
+    ingredients: ["seven greens", "smoked turkey", "creole herbs"],
     detail:
       "A greens-forward New Orleans classic with smoked turkey, herbs, and slow-built creole depth.",
   },
   {
     name: "Calypso Corn Chowder",
     tag: "Seasonal",
-    image: "/brand/hero-soup.jpg",
+    color: "#f3e9e9",
+    ingredients: ["sweet corn", "coconut milk", "thyme"],
     detail:
       "Sweet corn, coconut milk, scallion, thyme, and warming Caribbean spice in a sunny, creamy bowl.",
   },

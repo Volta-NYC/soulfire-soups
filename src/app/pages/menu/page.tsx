@@ -1,4 +1,3 @@
-import Image from "next/image"
 import ButtonLink from "@/lib/components/button-link"
 import Reveal from "@/lib/components/reveal"
 import { inspirations, menuItems, squareOrderUrl } from "@/lib/site-data"
@@ -32,13 +31,12 @@ export default function MenuPage() {
           {menuItems.map((item) => (
             <Reveal key={item.name} className="bg-brand-blush">
               <div className="grid gap-0 md:grid-cols-[0.72fr_1fr]">
-                <Image
-                  src={item.image}
-                  alt={item.name}
-                  width={420}
-                  height={420}
-                  className="h-full min-h-64 w-full object-cover"
-                />
+                <div className="grid min-h-72 place-items-center bg-brand-brown p-8">
+                  <div
+                    className="soup-orbit aspect-square w-full max-w-64 rounded-full shadow-[inset_0_0_0_16px_rgba(255,248,239,0.12)]"
+                    style={{ "--soup-color": item.color } as React.CSSProperties}
+                  />
+                </div>
                 <div className="p-8 md:p-10">
                   <span className="text-sm font-bold uppercase tracking-wide text-brand-red">
                     {item.tag}
@@ -49,6 +47,16 @@ export default function MenuPage() {
                   <p className="mt-5 text-base leading-8 text-brand-brown/75">
                     {item.detail}
                   </p>
+                  <div className="mt-6 flex flex-wrap gap-2">
+                    {item.ingredients.map((ingredient) => (
+                      <span
+                        key={ingredient}
+                        className="rounded-full bg-white/75 px-3 py-1 text-xs font-bold uppercase tracking-wide text-brand-brown/65"
+                      >
+                        {ingredient}
+                      </span>
+                    ))}
+                  </div>
                 </div>
               </div>
             </Reveal>
