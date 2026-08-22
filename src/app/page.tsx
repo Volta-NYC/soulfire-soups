@@ -8,7 +8,7 @@ export default function HomePage() {
   return (
     <div>
       <section className="brand-grain bg-brand-cream">
-        <div className="mx-auto grid max-w-7xl items-center gap-12 px-5 py-14 lg:min-h-[720px] lg:grid-cols-[0.95fr_1.05fr] lg:px-8">
+        <div className="mx-auto grid max-w-7xl items-center gap-12 px-5 pb-14 pt-28 lg:min-h-[760px] lg:grid-cols-[0.95fr_1.05fr] lg:px-8 lg:pt-32">
           <div className="min-w-0 max-w-[19rem] min-[430px]:max-w-2xl">
             <p className="mb-5 text-sm font-bold uppercase tracking-[0.2em] text-brand-gold">
               Small batch • soul-fired
@@ -38,11 +38,18 @@ export default function HomePage() {
           </div>
 
           <div className="grid min-w-0 gap-4 md:grid-cols-[1fr_0.58fr] md:items-end">
-            <SoupVisual
-              color="#cc2127"
-              label="signature simmer"
-              className="min-h-[460px]"
-            />
+            <div className="grid gap-4">
+              <SoupVisual
+                color="#366834"
+                label="greens and herbs"
+                className="min-h-52"
+              />
+              <SoupVisual
+                color="#cc2127"
+                label="signature simmer"
+                className="min-h-[420px]"
+              />
+            </div>
             <div className="grid gap-4">
               <SoupVisual
                 color="#d99b2d"

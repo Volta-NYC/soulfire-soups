@@ -18,13 +18,19 @@ export default function Navbar() {
     return () => window.removeEventListener("scroll", onScroll)
   }, [])
 
+  const elevated = scrolled || open
+
   return (
-    <header className="sticky top-0 z-50 border-b border-brand-brown/10 bg-brand-cream">
+    <header
+      className={`fixed inset-x-0 top-0 z-50 transition duration-300 ${
+        elevated
+          ? "border-b border-brand-brown/10 bg-brand-cream/95 shadow-[0_8px_24px_rgba(90,62,44,0.08)]"
+          : "border-b border-transparent bg-transparent"
+      }`}
+    >
       <nav
         className={`mx-auto flex max-w-7xl items-center justify-between px-5 transition duration-300 lg:px-8 ${
-          scrolled
-            ? "min-h-[72px] shadow-[0_8px_24px_rgba(90,62,44,0.08)]"
-            : "min-h-[86px]"
+          elevated ? "min-h-[70px]" : "min-h-[92px]"
         }`}
       >
         <Link href="/" className="flex items-center" aria-label="SoulFire Soups home">
@@ -33,7 +39,7 @@ export default function Navbar() {
             alt="SoulFire Soups"
             width={190}
             height={91}
-            className={`${scrolled ? "h-11" : "h-14"} w-auto transition-all`}
+            className={`${elevated ? "h-11" : "h-14"} w-auto transition-all`}
             priority
           />
         </Link>
