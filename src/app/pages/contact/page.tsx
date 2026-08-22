@@ -1,16 +1,31 @@
+import ButtonLink from "@/lib/components/button-link"
+import { squareOrderUrl } from "@/lib/site-data"
+
 export default function ContactPage() {
   return (
-    <div className="space-y-6">
-      <h1 className="text-3xl font-bold">Contact</h1>
-      <p className="text-gray-600">
-        Replace this with contact info (phone, email, address) and/or a contact form.
-      </p>
-
-      <div className="rounded-md border p-4 text-sm text-gray-600">
-        <div><span className="font-medium text-gray-800">Email:</span> contact@business.com</div>
-        <div><span className="font-medium text-gray-800">Phone:</span> (000) 000-0000</div>
-        <div><span className="font-medium text-gray-800">Address:</span> 123 Main St, City, ST</div>
-      </div>
+    <div className="bg-brand-cream px-5 py-16 lg:px-8">
+      <section className="mx-auto grid max-w-7xl gap-10 lg:grid-cols-[0.9fr_1.1fr]">
+        <div>
+          <p className="mb-4 text-sm font-bold uppercase tracking-[0.2em] text-brand-red">
+            Contact
+          </p>
+          <h1 className="font-display text-5xl font-bold leading-tight text-brand-brown md:text-7xl">
+            Need soup for your table?
+          </h1>
+        </div>
+        <div className="border-y border-brand-brown/20 py-8">
+          <p className="text-lg leading-8 text-brand-brown/75">
+            Order current batches through Square. For catering, seasonal
+            questions, or special requests, use the Square page as the most
+            current point of contact until a dedicated inbox is confirmed.
+          </p>
+          <div className="mt-8">
+            <ButtonLink href={squareOrderUrl} external>
+              Open Square Ordering
+            </ButtonLink>
+          </div>
+        </div>
+      </section>
     </div>
   )
 }
