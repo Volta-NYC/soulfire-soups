@@ -5,7 +5,7 @@ import { navItems, squareOrderUrl } from "@/lib/site-data"
 export default function Footer() {
   return (
     <footer className="bg-brand-brown text-brand-blush">
-      <div className="mx-auto grid max-w-7xl gap-10 px-5 py-12 md:grid-cols-[1.2fr_0.8fr_0.8fr] lg:px-8">
+      <div className="mx-auto grid max-w-7xl gap-12 px-5 py-14 md:grid-cols-[1.35fr_0.7fr_0.8fr] lg:px-8">
         <div className="max-w-md">
           <Image
             src="/brand/soulfire-main-white.png"
@@ -14,7 +14,7 @@ export default function Footer() {
             height={106}
             className="mb-5 h-auto w-44"
           />
-          <p className="text-sm leading-7 text-brand-blush/80">
+          <p className="mt-5 text-base leading-7 text-brand-blush/78">
             Small-batch soups inspired by Black Southern staples, Caribbean and
             Latin spices, global influences, and the stories carried into every
             bowl.
@@ -25,7 +25,7 @@ export default function Footer() {
           <h2 className="mb-4 text-sm font-bold uppercase tracking-wide text-brand-gold">
             Explore
           </h2>
-          <div className="grid gap-3 text-sm">
+          <div className="grid gap-3 text-sm font-bold uppercase tracking-wide">
             {navItems.map((item) => (
               <Link key={item.href} href={item.href} className="hover:text-brand-gold">
                 {item.label}

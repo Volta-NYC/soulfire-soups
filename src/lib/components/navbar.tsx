@@ -19,26 +19,26 @@ export default function Navbar() {
   }, [])
 
   return (
-    <header className="fixed inset-x-0 top-0 z-50 isolate px-4 pt-4">
+    <header className="sticky top-0 z-50 border-b border-brand-brown/10 bg-brand-cream">
       <nav
-        className={`mx-auto flex max-w-7xl items-center justify-between rounded-2xl border px-5 py-3 transition duration-300 lg:px-6 ${
+        className={`mx-auto flex max-w-7xl items-center justify-between px-5 transition duration-300 lg:px-8 ${
           scrolled
-            ? "border-brand-blush/70 bg-brand-brown/72 text-brand-blush shadow-[0_18px_55px_rgba(42,26,17,0.24)] backdrop-blur-xl"
-            : "border-brand-brown/10 bg-brand-cream/62 text-brand-brown shadow-[0_12px_45px_rgba(90,62,44,0.10)] backdrop-blur-md"
+            ? "min-h-[72px] shadow-[0_8px_24px_rgba(90,62,44,0.08)]"
+            : "min-h-[86px]"
         }`}
       >
         <Link href="/" className="flex items-center" aria-label="SoulFire Soups home">
           <Image
-            src={scrolled ? "/brand/soulfire-main-white.png" : "/brand/soulfire-main-brown.png"}
+            src="/brand/soulfire-main-brown.png"
             alt="SoulFire Soups"
             width={190}
             height={91}
-            className="h-12 w-auto md:h-14"
+            className={`${scrolled ? "h-11" : "h-14"} w-auto transition-all`}
             priority
           />
         </Link>
 
-        <div className="hidden items-center gap-7 text-sm font-bold uppercase tracking-[0.18em] lg:flex">
+        <div className="hidden items-center gap-7 text-sm font-bold uppercase tracking-[0.16em] text-brand-brown lg:flex">
           {navItems.map((item) => (
             <Link
               key={item.href}
@@ -57,9 +57,9 @@ export default function Navbar() {
             href={squareOrderUrl}
             target="_blank"
             rel="noreferrer"
-            className="sr-only"
+            className="rounded-md bg-brand-red px-5 py-3 text-brand-blush transition hover:bg-brand-brown"
           >
-            Order on Square
+            Order Online
           </Link>
         </div>
 
@@ -80,13 +80,13 @@ export default function Navbar() {
       </nav>
 
       {open && (
-        <div id="mobile-menu" className="mx-auto mt-3 max-w-7xl rounded-2xl border border-brand-blush/20 bg-brand-brown/92 px-5 py-5 text-brand-blush shadow-2xl backdrop-blur-xl lg:hidden">
-          <div className="flex flex-col gap-4 text-base font-bold text-brand-brown">
+        <div id="mobile-menu" className="border-t border-brand-brown/10 bg-brand-cream px-5 py-5 lg:hidden">
+          <div className="mx-auto flex max-w-7xl flex-col gap-4 text-base font-bold">
             {navItems.map((item) => (
               <Link
                 key={item.href}
                 href={item.href}
-                className="border-l-2 border-brand-gold/0 py-2 pl-3 text-xl text-brand-blush hover:border-brand-gold"
+                className="border-l-2 border-brand-gold/0 py-2 pl-3 text-xl text-brand-brown hover:border-brand-gold"
                 onClick={() => setOpen(false)}
               >
                 {item.label}
@@ -96,10 +96,10 @@ export default function Navbar() {
               href={squareOrderUrl}
               target="_blank"
               rel="noreferrer"
-              className="mt-2 inline-flex min-h-12 items-center justify-center rounded-full bg-brand-red px-5 text-brand-blush"
+              className="mt-2 inline-flex min-h-12 items-center justify-center rounded-md bg-brand-red px-5 text-brand-blush"
               onClick={() => setOpen(false)}
             >
-              Order on Square
+              Order Online
             </Link>
           </div>
         </div>

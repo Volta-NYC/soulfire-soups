@@ -4,12 +4,12 @@ import { squareOrderUrl } from "@/lib/site-data"
 export default function ContactPage() {
   return (
     <div className="bg-brand-cream px-5 py-16 lg:px-8">
-      <section className="mx-auto grid max-w-7xl gap-10 lg:grid-cols-[0.9fr_1.1fr]">
+      <section className="brand-grain mx-auto grid max-w-7xl gap-10 lg:grid-cols-[0.9fr_1.1fr]">
         <div>
           <p className="mb-4 text-sm font-bold uppercase tracking-[0.2em] text-brand-red">
             Contact
           </p>
-          <h1 className="font-display text-5xl font-bold leading-tight text-brand-brown md:text-7xl">
+          <h1 className="font-display text-5xl font-bold leading-tight text-brand-brown md:text-6xl">
             Need soup for your table?
           </h1>
         </div>
@@ -19,9 +19,12 @@ export default function ContactPage() {
             questions, or special requests, use the Square page as the most
             current point of contact until a dedicated inbox is confirmed.
           </p>
-          <div className="mt-8">
+          <div className="mt-8 flex flex-col gap-3 sm:flex-row">
             <ButtonLink href={squareOrderUrl} external>
-              Open Square Ordering
+              Order Online
+            </ButtonLink>
+            <ButtonLink href="/pages/catering" variant="secondary">
+              Explore Catering
             </ButtonLink>
           </div>
         </div>

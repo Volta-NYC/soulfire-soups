@@ -1,24 +1,26 @@
-import Image from "next/image"
 import Link from "next/link"
 import ButtonLink from "@/lib/components/button-link"
 import Reveal from "@/lib/components/reveal"
-import { inspirations, menuItems, squareOrderUrl } from "@/lib/site-data"
+import SoupVisual from "@/lib/components/soup-visual"
+import { inspirations, menuItems, squareOrderUrl, values } from "@/lib/site-data"
 
 export default function HomePage() {
   return (
     <div>
-      <section className="brand-grain relative overflow-hidden bg-[#fbf6ed] pt-28 text-brand-ink">
-        <div className="pointer-events-none absolute right-0 top-0 hidden h-[640px] w-[640px] rounded-full bg-brand-gold/20 blur-3xl lg:block" />
-        <div className="pointer-events-none absolute -left-32 bottom-0 h-80 w-80 rounded-full bg-brand-red/10 blur-3xl" />
-        <div className="mx-auto grid max-w-7xl items-center gap-12 px-6 pb-20 pt-16 md:pb-24 lg:min-h-[820px] lg:grid-cols-[1.02fr_0.98fr] lg:px-8">
-          <div className="relative z-10 max-w-2xl">
-            <p className="mb-6 text-sm font-bold uppercase tracking-[0.22em] text-brand-gold">
-              Small batch and soul-fired
+      <section className="brand-grain bg-brand-cream">
+        <div className="mx-auto grid max-w-7xl items-center gap-12 px-5 py-14 lg:min-h-[720px] lg:grid-cols-[0.95fr_1.05fr] lg:px-8">
+          <div className="min-w-0 max-w-[19rem] min-[430px]:max-w-2xl">
+            <p className="mb-5 text-sm font-bold uppercase tracking-[0.2em] text-brand-gold">
+              Small batch • soul-fired
             </p>
-            <h1 className="font-serif text-6xl font-semibold leading-[0.92] text-[#c45f3d] md:text-7xl lg:text-[5.75rem]">
-              Where Food, Culture, and Community Meet
+            <h1 className="max-w-full font-display text-[2.72rem] font-bold leading-[0.98] text-[#c45f3d] min-[430px]:text-6xl md:text-7xl lg:text-[5.7rem]">
+              <span className="block">Where</span>
+              <span className="block">Food,</span>
+              <span className="block">Culture,</span>
+              <span className="block md:inline">and</span>
+              <span className="block">Community Meet</span>
             </h1>
-            <p className="mt-8 max-w-xl text-lg leading-8 text-brand-ink/75">
+            <p className="mt-7 text-measure text-lg leading-8 text-brand-ink/76">
               Every bowl has a story. Ours began with family traditions and
               Sunday dinners, then grew through years of gathering friends,
               family, and community around food. Today, SoulFire Soups creates
@@ -27,191 +29,198 @@ export default function HomePage() {
             </p>
             <div className="mt-9 flex flex-col gap-3 sm:flex-row">
               <ButtonLink href={squareOrderUrl} external>
-                Order on Square
+                Order Online
               </ButtonLink>
-              <ButtonLink href="/pages/menu" variant="light">
-                View Seasonal Menu
+              <ButtonLink href="/pages/menu" variant="secondary">
+                Explore the Menu
               </ButtonLink>
             </div>
           </div>
 
-          <div className="relative z-10 mx-auto w-full max-w-[560px]">
-            <div className="relative rounded-[2rem] border border-brand-brown/15 bg-white/55 p-5 shadow-[0_25px_90px_rgba(90,62,44,0.18)] backdrop-blur">
-              <div className="aspect-square rounded-[1.55rem] bg-brand-brown p-8 text-brand-blush">
-                <div className="flex h-full flex-col justify-between">
-                  <div className="flex items-start justify-between gap-5">
-                    <Image
-                      src="/brand/soulfire-submark-gold.png"
-                      alt=""
-                      width={116}
-                      height={116}
-                      className="h-24 w-24 object-contain"
-                    />
-                    <div className="text-right text-xs font-bold uppercase tracking-[0.22em] text-brand-gold">
-                      Seasonal
-                      <br />
-                      Batch
-                    </div>
-                  </div>
-                  <div className="soup-orbit mx-auto aspect-square w-[68%] rounded-full shadow-[inset_0_0_0_18px_rgba(255,248,239,0.12)] [--soup-color:#cc2127]" />
-                  <div className="grid grid-cols-3 gap-3 text-center text-[0.68rem] font-bold uppercase tracking-[0.18em] text-brand-gold">
-                    <span>Roasted Roots</span>
-                    <span>Slow Simmer</span>
-                    <span>Fresh Heat</span>
-                  </div>
-                </div>
+          <div className="grid min-w-0 gap-4 md:grid-cols-[1fr_0.58fr] md:items-end">
+            <SoupVisual
+              color="#cc2127"
+              label="signature simmer"
+              className="min-h-[460px]"
+            />
+            <div className="grid gap-4">
+              <SoupVisual
+                color="#d99b2d"
+                label="roasted roots"
+                className="min-h-56"
+              />
+              <div className="border-y border-brand-brown/20 py-5">
+                <p className="text-xs font-bold uppercase tracking-[0.18em] text-brand-red">
+                  Current batches order through Square
+                </p>
+                <p className="mt-2 text-sm leading-6 text-brand-brown/70">
+                  Seasonal soups are prepared in small batches and shared while
+                  they are available.
+                </p>
               </div>
             </div>
-            <div className="absolute -bottom-8 -left-8 hidden rounded-2xl bg-brand-red px-5 py-4 text-sm font-bold uppercase tracking-wide text-brand-blush shadow-xl md:block">
-              Order on Square
-            </div>
           </div>
         </div>
       </section>
 
-      <section className="bg-[#fbf6ed] px-6 py-20 lg:px-8">
-        <Reveal className="mx-auto grid max-w-7xl gap-8 lg:grid-cols-[0.9fr_1.1fr]">
-          <div>
-            <p className="mb-4 text-sm font-bold uppercase tracking-[0.2em] text-brand-red">
-              The soul behind the fire
-            </p>
-            <h2 className="font-serif text-5xl font-semibold leading-tight text-brand-brown md:text-6xl">
-              Some stories begin with a business plan.
-              <br />
-              Ours began around a table.
-            </h2>
-          </div>
-          <div className="grid gap-6 text-lg leading-8 text-brand-brown/80">
-            <p>
-              The business began with a love of creating soups and bringing
-              familiar ingredients together in ways that feel fresh,
-              comforting, and sometimes unexpected.
-            </p>
-            <p>
-              Each batch is rooted in real ingredients and layered taste, with
-              tradition treated as a starting point for curiosity.
-            </p>
-            <Link
-              href="/pages/about"
-              className="w-fit border-b-2 border-brand-gold pb-1 text-sm font-bold uppercase tracking-wide text-brand-green"
-            >
-              The story behind SoulFire Soups
-            </Link>
-          </div>
-        </Reveal>
-      </section>
-
-      <section className="bg-brand-brown px-6 py-10 text-brand-blush lg:px-8">
-        <div className="mx-auto grid max-w-7xl gap-px overflow-hidden rounded-[1.5rem] border border-brand-blush/15 bg-brand-blush/15 md:grid-cols-4">
-          {["Small-batch", "Diasporic flavors", "Seasonal bowls", "Square ordering"].map((item) => (
-            <div key={item} className="bg-brand-brown/70 px-6 py-7">
-              <p className="text-sm font-bold uppercase tracking-[0.18em] text-brand-gold">
-                {item}
-              </p>
-            </div>
-          ))}
-        </div>
-      </section>
-
-      <section className="brand-grain bg-brand-blush px-6 py-20 lg:px-8">
+      <section className="section-shell bg-brand-blush">
         <div className="mx-auto max-w-7xl">
-          <Reveal className="mb-10 flex flex-col gap-4 md:flex-row md:items-end md:justify-between">
+          <Reveal className="mb-12 flex flex-col gap-5 md:flex-row md:items-end md:justify-between">
             <div>
-              <p className="mb-3 text-sm font-bold uppercase tracking-[0.2em] text-brand-brown/60">
-                Ordering is hosted on Square
-              </p>
               <p className="mb-3 text-sm font-bold uppercase tracking-[0.2em] text-brand-red">
-                Seasonal menu
+                Seasonal menu preview
               </p>
-              <h2 className="font-serif text-5xl font-semibold text-brand-brown md:text-6xl">
-                Seasonal Menu
+              <h2 className="font-display text-4xl font-bold text-brand-brown md:text-6xl">
+                Bowls with a point of view.
               </h2>
             </div>
             <ButtonLink href="/pages/menu" variant="secondary">
-              Explore Menu
+              View Full Seasonal Menu
             </ButtonLink>
           </Reveal>
-          <div className="grid gap-6 md:grid-cols-3">
+
+          <div className="grid gap-8 lg:grid-cols-3">
             {menuItems.slice(0, 3).map((item) => (
-              <Reveal key={item.name} className="group overflow-hidden rounded-[1.35rem] border border-brand-brown/12 bg-[#fbf6ed] shadow-[0_18px_50px_rgba(90,62,44,0.10)] transition hover:-translate-y-1">
-                <div className="relative aspect-[1.12] overflow-hidden bg-brand-brown p-7">
-                  <div
-                    className="soup-orbit mx-auto aspect-square h-full rounded-full transition duration-500 group-hover:scale-[1.04]"
-                    style={{ "--soup-color": item.color } as React.CSSProperties}
+              <Reveal key={item.name} className="group">
+                <article className="grid gap-5">
+                  <SoupVisual
+                    color={item.color}
+                    label={item.tag}
+                    className="transition duration-300 group-hover:-translate-y-1"
                   />
-                  <Image
-                    src="/brand/soulfire-submark-white.png"
-                    alt=""
-                    width={84}
-                    height={84}
-                    className="absolute right-5 top-5 h-12 w-12 object-contain opacity-70"
-                  />
-                </div>
-                <div className="p-6">
-                  <span className="text-xs font-bold uppercase tracking-wide text-brand-red">
+                  <div className="border-t border-brand-brown/20 pt-5">
+                    <p className="text-xs font-bold uppercase tracking-[0.18em] text-brand-red">
                     {item.tag}
-                  </span>
-                  <h3 className="mt-3 font-serif text-3xl font-semibold text-brand-brown">
-                    {item.name}
-                  </h3>
-                  <p className="mt-4 text-sm leading-7 text-brand-brown/75">
-                    {item.detail}
-                  </p>
-                  <div className="mt-5 flex flex-wrap gap-2">
-                    {item.ingredients.map((ingredient) => (
-                      <span
-                        key={ingredient}
-                        className="rounded-full border border-brand-brown/10 bg-white/70 px-3 py-1 text-xs font-bold uppercase tracking-wide text-brand-brown/65"
-                      >
-                        {ingredient}
-                      </span>
-                    ))}
+                    </p>
+                    <h3 className="mt-2 font-display text-3xl font-bold text-brand-brown">
+                      {item.name}
+                    </h3>
+                    <p className="mt-3 text-sm font-bold text-brand-green">
+                      {item.dietary}
+                    </p>
+                    <p className="mt-3 text-base leading-7 text-brand-brown/75">
+                      {item.detail}
+                    </p>
+                    <p className="mt-4 text-sm text-brand-brown/58">
+                      {item.ingredients.join(" • ")}
+                    </p>
                   </div>
-                </div>
+                </article>
               </Reveal>
             ))}
           </div>
         </div>
       </section>
 
-      <section className="bg-brand-brown px-6 py-20 text-brand-blush lg:px-8">
+      <section className="section-shell bg-brand-cream">
+        <Reveal className="mx-auto grid max-w-7xl gap-10 lg:grid-cols-[0.92fr_1.08fr]">
+          <SoupVisual color="#5a3e2c" label="story in every bowl" tone="light" className="min-h-[420px]" />
+          <div className="self-center">
+            <p className="mb-4 text-sm font-bold uppercase tracking-[0.2em] text-brand-red">
+              The soul behind the fire
+            </p>
+            <h2 className="font-display text-4xl font-bold leading-tight text-brand-brown md:text-5xl">
+              Some stories begin with a business plan.
+              <br />
+              Ours began around a table.
+            </h2>
+            <div className="mt-7 grid gap-5 text-lg leading-8 text-brand-brown/78">
+              <p>
+                The business began with a love of creating soups and bringing
+                familiar ingredients together in ways that feel fresh,
+                comforting, and sometimes unexpected.
+              </p>
+              <p>
+                Each batch is rooted in real ingredients and layered taste, with
+                tradition treated as a starting point for curiosity.
+              </p>
+            </div>
+            <Link
+              href="/pages/about"
+              className="mt-7 inline-flex border-b-2 border-brand-gold pb-1 text-sm font-bold uppercase tracking-wide text-brand-green"
+            >
+              Read Our Story
+            </Link>
+          </div>
+        </Reveal>
+      </section>
+
+      <section className="section-shell bg-brand-brown text-brand-blush">
         <Reveal className="mx-auto grid max-w-7xl gap-10 lg:grid-cols-[0.9fr_1.1fr]">
           <div>
             <p className="mb-4 text-sm font-bold uppercase tracking-[0.2em] text-brand-gold">
-              Flavor map
+              Flavor story
             </p>
-            <h2 className="font-display text-4xl font-bold leading-tight md:text-6xl">
+            <h2 className="font-display text-4xl font-bold leading-tight text-brand-blush md:text-6xl">
               Familiar ingredients, fresh routes.
             </h2>
+            <p className="mt-5 max-w-md text-brand-blush/76">
+              SoulFire draws thoughtfully from multiple culinary traditions,
+              building bowls that feel grounded, personal, and alive.
+            </p>
           </div>
-          <div className="grid gap-4 sm:grid-cols-2">
-            {inspirations.map((item) => (
+          <div className="grid gap-px border border-brand-blush/20 bg-brand-blush/20 sm:grid-cols-2">
+            {inspirations.map((item, index) => (
               <div
                 key={item}
-                className="border border-brand-blush/25 px-5 py-6 text-lg font-bold"
+                className="bg-brand-brown px-6 py-8"
               >
-                {item}
+                <p className="text-xs font-bold uppercase tracking-[0.2em] text-brand-gold">
+                  {index + 1}
+                </p>
+                <h3 className="mt-4 font-display text-2xl font-bold text-brand-blush">
+                  {item}
+                </h3>
               </div>
             ))}
           </div>
         </Reveal>
       </section>
 
-      <section className="brand-grain bg-brand-cream px-6 py-20 lg:px-8">
-        <Reveal className="mx-auto grid max-w-7xl items-center gap-10 rounded-[1.5rem] border border-brand-brown/15 bg-white/45 p-8 shadow-[0_18px_60px_rgba(90,62,44,0.10)] backdrop-blur lg:grid-cols-[1fr_0.8fr] lg:p-12">
+      <section className="section-shell bg-brand-cream">
+        <div className="mx-auto grid max-w-7xl gap-px border-y border-brand-brown/18 bg-brand-brown/18 md:grid-cols-4">
+          {values.map((item, index) => (
+            <Reveal key={item.title} className="bg-brand-cream p-6 md:p-8">
+              <p className="text-sm font-bold text-brand-red">{index + 1}</p>
+              <h3 className="mt-7 font-display text-2xl font-bold text-brand-brown">
+                {item.title}
+              </h3>
+              <p className="mt-3 text-sm leading-6 text-brand-brown/70">
+                {item.text}
+              </p>
+            </Reveal>
+          ))}
+        </div>
+      </section>
+
+      <section className="bg-brand-green px-5 py-16 text-brand-blush lg:px-8">
+        <Reveal className="mx-auto grid max-w-7xl items-center gap-10 lg:grid-cols-[1.05fr_0.95fr]">
           <div>
-            <p className="mb-4 text-sm font-bold uppercase tracking-[0.2em] text-brand-red">
-              Gather around the pot
+            <p className="mb-4 text-sm font-bold uppercase tracking-[0.2em] text-brand-gold">
+              Catering
             </p>
-            <h2 className="font-display text-4xl font-bold text-brand-brown md:text-5xl">
-              Catering for lunches, reunions, and soulful events.
+            <h2 className="font-display text-5xl font-bold leading-tight text-brand-blush md:text-6xl">
+              Gather around the pot.
             </h2>
+            <p className="mt-5 max-w-xl text-lg leading-8 text-brand-blush/82">
+              From office lunches to family reunions, SoulFire can bring
+              larger-batch soups, sides, and warmth to the table.
+            </p>
+            <div className="mt-8 flex flex-col gap-3 sm:flex-row">
+              <ButtonLink href="/pages/catering" variant="light">Explore Catering</ButtonLink>
+              <ButtonLink href={squareOrderUrl} variant="light" external>
+                Order Online
+              </ButtonLink>
+            </div>
           </div>
-          <div className="flex flex-col gap-3 sm:flex-row lg:justify-end">
-            <ButtonLink href="/pages/catering">Catering Info</ButtonLink>
-            <ButtonLink href={squareOrderUrl} variant="secondary" external>
-              Order on Square
-            </ButtonLink>
+          <div className="grid gap-3 sm:grid-cols-2">
+            {["Office lunches", "Family reunions", "Community events", "Small celebrations"].map((item) => (
+              <div key={item} className="border border-brand-blush/28 p-6">
+                <p className="font-display text-2xl font-bold text-brand-blush">
+                  {item}
+                </p>
+              </div>
+            ))}
           </div>
         </Reveal>
       </section>

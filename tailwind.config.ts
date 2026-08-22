@@ -13,6 +13,7 @@ const config: Config = {
           blush: "#f3e9e9",
           cream: "#fff8ef",
           ink: "#2a1a11",
+          smoke: "#efe5d7",
         },
       },
       boxShadow: {

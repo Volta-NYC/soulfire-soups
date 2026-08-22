@@ -6,6 +6,7 @@ html,
 body {
   padding: 0;
   margin: 0;
+  overflow-x: clip;
   scroll-behavior: smooth;
 }
 
@@ -14,7 +15,18 @@ body {
 }
 
 body {
-  font-family: "Gutter", var(--font-atkinson), system-ui, sans-serif;
+  background: #fff8ef;
+  color: #2a1a11;
+  font-family: var(--font-atkinson), system-ui, sans-serif;
+  line-height: 1.6;
+  -webkit-font-smoothing: antialiased;
+}
+
+img,
+svg,
+video,
+canvas {
+  max-width: 100%;
 }
 
 h1,
@@ -22,7 +34,8 @@ h2,
 h3,
 h4,
 .font-display {
-  font-family: var(--font-atkinson), system-ui, sans-serif;
+  font-family: var(--font-fraunces), Georgia, serif;
+  letter-spacing: 0;
 }
 
 ::selection {
@@ -67,11 +80,55 @@ h4,
   background-size: 44px 44px;
 }
 
-.soup-orbit {
+.soup-photo-slot {
+  position: relative;
+  min-height: 280px;
+  overflow: hidden;
+  color: #f3e9e9;
+  border: 1px solid rgba(90, 62, 44, 0.18);
+}
+
+.soup-photo-slot::before {
+  content: "";
+  position: absolute;
+  inset: 0;
   background:
-    radial-gradient(circle at 50% 50%, rgba(255,255,255,0.76) 0 18%, transparent 19%),
-    radial-gradient(circle at 50% 50%, transparent 0 40%, rgba(255,255,255,0.38) 41% 42%, transparent 43%),
-    radial-gradient(circle at 50% 50%, var(--soup-color) 0 58%, rgba(42,26,17,0.22) 59% 61%, transparent 62%);
+    linear-gradient(120deg, rgba(255, 248, 239, 0.08), transparent 34%),
+    repeating-linear-gradient(90deg, rgba(255,255,255,0.035) 0 1px, transparent 1px 18px);
+  pointer-events: none;
+}
+
+.soup-bowl {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  aspect-ratio: 1;
+  width: min(68%, 340px);
+  transform: translate(-50%, -50%);
+  border-radius: 999px;
+  box-shadow:
+    0 18px 34px rgba(42, 26, 17, 0.3),
+    inset 0 0 0 18px rgba(255, 248, 239, 0.13),
+    inset 0 0 0 36px rgba(42, 26, 17, 0.18);
+  background:
+    radial-gradient(circle at 50% 50%, rgba(255, 248, 239, 0.82) 0 14%, transparent 15%),
+    radial-gradient(circle at 50% 50%, transparent 0 38%, rgba(255, 248, 239, 0.35) 39% 40%, transparent 41%),
+    radial-gradient(circle at 48% 44%, rgba(255,255,255,0.18), transparent 22%),
+    radial-gradient(circle at center, var(--soup-color) 0 62%, rgba(42,26,17,0.2) 63% 66%, transparent 67%);
+}
+
+.text-measure {
+  max-width: 42rem;
+}
+
+.section-shell {
+  padding: 5rem 1.5rem;
+}
+
+@media (min-width: 1024px) {
+  .section-shell {
+    padding: 6.5rem 2rem;
+  }
 }
 
 @media (prefers-reduced-motion: reduce) {

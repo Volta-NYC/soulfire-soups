@@ -1,16 +1,17 @@
 import ButtonLink from "@/lib/components/button-link"
 import Reveal from "@/lib/components/reveal"
+import SoupVisual from "@/lib/components/soup-visual"
 import { inspirations, menuItems, squareOrderUrl } from "@/lib/site-data"
 
 export default function MenuPage() {
   return (
     <div className="bg-brand-cream">
-      <section className="mx-auto grid max-w-7xl gap-10 px-5 py-16 lg:grid-cols-[0.9fr_1.1fr] lg:px-8">
+      <section className="brand-grain mx-auto grid max-w-7xl gap-10 px-5 py-16 lg:grid-cols-[0.9fr_1.1fr] lg:px-8">
         <div>
           <p className="mb-4 text-sm font-bold uppercase tracking-[0.2em] text-brand-red">
             Seasonal menu
           </p>
-          <h1 className="font-display text-5xl font-bold leading-tight text-brand-brown md:text-7xl">
+          <h1 className="font-display text-5xl font-bold leading-tight text-brand-brown md:text-6xl">
             Small batches with big memory.
           </h1>
         </div>
@@ -26,39 +27,30 @@ export default function MenuPage() {
         </div>
       </section>
 
-      <section className="px-5 pb-16 lg:px-8">
-        <div className="mx-auto grid max-w-7xl gap-px overflow-hidden border border-brand-brown/20 bg-brand-brown/20 md:grid-cols-2">
-          {menuItems.map((item) => (
-            <Reveal key={item.name} className="bg-brand-blush">
-              <div className="grid gap-0 md:grid-cols-[0.72fr_1fr]">
-                <div className="grid min-h-72 place-items-center bg-brand-brown p-8">
-                  <div
-                    className="soup-orbit aspect-square w-full max-w-64 rounded-full shadow-[inset_0_0_0_16px_rgba(255,248,239,0.12)]"
-                    style={{ "--soup-color": item.color } as React.CSSProperties}
-                  />
-                </div>
-                <div className="p-8 md:p-10">
-                  <span className="text-sm font-bold uppercase tracking-wide text-brand-red">
+      <section className="px-5 pb-20 lg:px-8">
+        <div className="mx-auto grid max-w-7xl gap-10">
+          {menuItems.map((item, index) => (
+            <Reveal key={item.name}>
+              <article className={`grid gap-0 border-y border-brand-brown/18 bg-brand-blush lg:grid-cols-2 ${index % 2 === 1 ? "lg:[&>*:first-child]:order-2" : ""}`}>
+                <SoupVisual color={item.color} label={item.tag} className="min-h-[360px]" />
+                <div className="flex flex-col justify-center p-7 md:p-10 lg:p-12">
+                  <p className="text-sm font-bold uppercase tracking-[0.18em] text-brand-red">
                     {item.tag}
-                  </span>
-                  <h2 className="mt-5 font-serif text-4xl font-semibold text-brand-brown">
+                  </p>
+                  <h2 className="mt-4 font-display text-4xl font-bold text-brand-brown">
                     {item.name}
                   </h2>
-                  <p className="mt-5 text-base leading-8 text-brand-brown/75">
+                  <p className="mt-3 text-sm font-bold text-brand-green">
+                    {item.dietary}
+                  </p>
+                  <p className="mt-5 text-lg leading-8 text-brand-brown/76">
                     {item.detail}
                   </p>
-                  <div className="mt-6 flex flex-wrap gap-2">
-                    {item.ingredients.map((ingredient) => (
-                      <span
-                        key={ingredient}
-                        className="rounded-full bg-white/75 px-3 py-1 text-xs font-bold uppercase tracking-wide text-brand-brown/65"
-                      >
-                        {ingredient}
-                      </span>
-                    ))}
-                  </div>
+                  <p className="mt-6 text-sm uppercase tracking-[0.16em] text-brand-brown/55">
+                    {item.ingredients.join(" / ")}
+                  </p>
                 </div>
-              </div>
+              </article>
             </Reveal>
           ))}
         </div>
@@ -82,6 +74,23 @@ export default function MenuPage() {
             ))}
           </div>
         </Reveal>
+      </section>
+
+      <section className="section-shell bg-brand-cream">
+        <div className="mx-auto max-w-3xl text-center">
+          <h2 className="font-display text-4xl font-bold text-brand-brown">
+            Ready for a bowl?
+          </h2>
+          <p className="mx-auto mt-4 max-w-xl text-brand-brown/72">
+            Ordering, availability, and seasonal offerings are hosted through
+            Square.
+          </p>
+          <div className="mt-8">
+            <ButtonLink href={squareOrderUrl} external>
+              Order Online
+            </ButtonLink>
+          </div>
+        </div>
       </section>
     </div>
   )

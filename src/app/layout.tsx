@@ -2,12 +2,18 @@ import "./globals.css"
 import type { ReactNode } from "react"
 import Navbar from "@/lib/components/navbar"
 import Footer from "@/lib/components/footer"
-import { Atkinson_Hyperlegible } from "next/font/google"
+import { Atkinson_Hyperlegible, Fraunces } from "next/font/google"
 
 const atkinson = Atkinson_Hyperlegible({
   subsets: ["latin"],
   weight: ["400", "700"],
   variable: "--font-atkinson",
+})
+
+const fraunces = Fraunces({
+  subsets: ["latin"],
+  weight: ["600", "700", "800"],
+  variable: "--font-fraunces",
 })
 
 export const metadata = {
@@ -33,7 +39,7 @@ export default function RootLayout({
   children: ReactNode
 }) {
   return (
-    <html lang="en" className={atkinson.variable}>
+    <html lang="en" className={`${atkinson.variable} ${fraunces.variable}`}>
       <body className="min-h-screen flex flex-col bg-brand-cream text-brand-ink">
         <Navbar />
         <main className="flex-1">
