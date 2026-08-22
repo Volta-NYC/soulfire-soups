@@ -1,3 +1,4 @@
+import Image from "next/image"
 import ButtonLink from "@/lib/components/button-link"
 import Reveal from "@/lib/components/reveal"
 import { inspirations, menuItems, squareOrderUrl } from "@/lib/site-data"
@@ -29,16 +30,27 @@ export default function MenuPage() {
       <section className="px-5 pb-16 lg:px-8">
         <div className="mx-auto grid max-w-7xl gap-px overflow-hidden border border-brand-brown/20 bg-brand-brown/20 md:grid-cols-2">
           {menuItems.map((item) => (
-            <Reveal key={item.name} className="bg-brand-blush p-8 md:p-10">
-              <span className="text-sm font-bold uppercase tracking-wide text-brand-red">
-                {item.tag}
-              </span>
-              <h2 className="mt-5 font-display text-3xl font-bold text-brand-brown">
-                {item.name}
-              </h2>
-              <p className="mt-5 text-base leading-8 text-brand-brown/75">
-                {item.detail}
-              </p>
+            <Reveal key={item.name} className="bg-brand-blush">
+              <div className="grid gap-0 md:grid-cols-[0.72fr_1fr]">
+                <Image
+                  src={item.image}
+                  alt={item.name}
+                  width={420}
+                  height={420}
+                  className="h-full min-h-64 w-full object-cover"
+                />
+                <div className="p-8 md:p-10">
+                  <span className="text-sm font-bold uppercase tracking-wide text-brand-red">
+                    {item.tag}
+                  </span>
+                  <h2 className="mt-5 font-serif text-4xl font-semibold text-brand-brown">
+                    {item.name}
+                  </h2>
+                  <p className="mt-5 text-base leading-8 text-brand-brown/75">
+                    {item.detail}
+                  </p>
+                </div>
+              </div>
             </Reveal>
           ))}
         </div>

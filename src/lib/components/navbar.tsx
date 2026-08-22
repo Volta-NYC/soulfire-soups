@@ -20,26 +20,23 @@ export default function Navbar() {
     <header
       className={`sticky top-0 z-50 transition ${
         scrolled
-          ? "border-b border-brand-brown/15 bg-brand-cream/95 shadow-sm backdrop-blur"
-          : "bg-brand-cream/90"
+          ? "border-b border-brand-brown/10 bg-[#fbf6ed]/95 shadow-sm backdrop-blur"
+          : "border-b border-brand-brown/10 bg-[#fbf6ed]"
       }`}
     >
-      <nav className="mx-auto flex max-w-7xl items-center justify-between px-5 py-3 lg:px-8">
-        <Link href="/" className="flex items-center gap-3" aria-label="SoulFire Soups home">
+      <nav className="mx-auto flex max-w-7xl items-center justify-between px-6 py-5 lg:px-8">
+        <Link href="/" className="flex items-center" aria-label="SoulFire Soups home">
           <Image
-            src="/brand/soulfire-submark-green.png"
-            alt=""
-            width={48}
-            height={48}
-            className="h-12 w-12 object-contain"
+            src="/brand/soulfire-main-brown.png"
+            alt="SoulFire Soups"
+            width={190}
+            height={91}
+            className="h-14 w-auto md:h-16"
             priority
           />
-          <span className="font-display text-lg font-bold text-brand-brown">
-            SoulFire Soups
-          </span>
         </Link>
 
-        <div className="hidden items-center gap-7 text-sm font-bold uppercase tracking-wide text-brand-brown lg:flex">
+        <div className="hidden items-center gap-10 text-sm font-bold uppercase tracking-[0.18em] text-brand-ink lg:flex">
           {navItems.map((item) => (
             <Link key={item.href} href={item.href} className="hover:text-brand-red">
               {item.label}
@@ -49,9 +46,9 @@ export default function Navbar() {
             href={squareOrderUrl}
             target="_blank"
             rel="noreferrer"
-            className="rounded-full bg-brand-red px-5 py-3 text-brand-blush transition hover:bg-brand-brown"
+            className="sr-only"
           >
-            Order
+            Order on Square
           </Link>
         </div>
 

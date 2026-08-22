@@ -7,20 +7,22 @@ import { inspirations, menuItems, squareOrderUrl } from "@/lib/site-data"
 export default function HomePage() {
   return (
     <div>
-      <section className="relative overflow-hidden bg-brand-green text-brand-blush">
-        <div className="absolute inset-y-0 right-0 hidden w-1/2 bg-brand-gold/20 lg:block" />
-        <div className="mx-auto grid min-h-[calc(100vh-74px)] max-w-7xl items-center gap-10 px-5 py-16 md:min-h-[760px] lg:grid-cols-[1fr_0.82fr] lg:px-8">
-          <div className="relative z-10 max-w-3xl">
-            <p className="mb-5 text-sm font-bold uppercase tracking-[0.22em] text-brand-gold">
+      <section className="relative overflow-hidden bg-[#fbf6ed] text-brand-ink">
+        <div className="pointer-events-none absolute right-0 top-28 hidden h-[520px] w-[520px] rounded-full bg-brand-gold/15 blur-3xl lg:block" />
+        <div className="mx-auto grid min-h-[calc(100vh-105px)] max-w-7xl items-center gap-10 px-6 py-20 lg:grid-cols-[1.03fr_0.97fr] lg:px-8">
+          <div className="relative z-10 max-w-2xl">
+            <p className="mb-6 text-sm font-bold uppercase tracking-[0.22em] text-brand-gold">
               Small batch and soul-fired
             </p>
-            <h1 className="font-display text-5xl font-bold leading-[0.98] md:text-7xl lg:text-8xl">
-              Where culture, comfort, and fire meet.
+            <h1 className="font-serif text-6xl font-semibold leading-[0.92] text-[#c45f3d] md:text-7xl lg:text-[5.75rem]">
+              Where Food, Culture, and Community Meet
             </h1>
-            <p className="mt-7 max-w-2xl text-lg leading-8 text-brand-blush/88">
-              SoulFire Soups creates warm, layered bowls inspired by Black
-              Southern staples, Caribbean and Latin spices, and the global food
-              experiences that shaped the cook behind the pot.
+            <p className="mt-8 max-w-xl text-lg leading-8 text-brand-ink/75">
+              Every bowl has a story. Ours began with family traditions and
+              Sunday dinners, then grew through years of gathering friends,
+              family, and community around food. Today, SoulFire Soups creates
+              small-batch soups inspired by Southern Black and Caribbean
+              influences and the people who helped shape SoulFire.
             </p>
             <div className="mt-9 flex flex-col gap-3 sm:flex-row">
               <ButtonLink href={squareOrderUrl} external>
@@ -32,29 +34,30 @@ export default function HomePage() {
             </div>
           </div>
 
-          <div className="relative z-10 mx-auto flex w-full max-w-xl items-center justify-center lg:justify-end">
-            <div className="soup-rings relative aspect-square w-full max-w-[520px] rounded-full border border-brand-blush/30 p-12 shadow-warm">
-              <Image
-                src="/brand/soulfire-main-brown.png"
-                alt="SoulFire Soups"
-                width={540}
-                height={254}
-                className="absolute left-1/2 top-1/2 h-auto w-[76%] -translate-x-1/2 -translate-y-1/2"
-                priority
-              />
-            </div>
+          <div className="relative z-10 mx-auto w-full max-w-[520px] lg:mt-28">
+            <Image
+              src="/brand/hero-soup.jpg"
+              alt="Steaming bowl of SoulFire soup with crusty bread"
+              width={520}
+              height={520}
+              className="aspect-square w-full rounded-[1.5rem] object-cover shadow-2xl"
+              priority
+            />
+            <div className="absolute -bottom-7 -left-7 hidden h-32 w-32 rounded-full bg-brand-red/10 md:block" />
           </div>
         </div>
       </section>
 
-      <section className="bg-brand-cream px-5 py-16 lg:px-8">
+      <section className="bg-[#fbf6ed] px-6 py-20 lg:px-8">
         <Reveal className="mx-auto grid max-w-7xl gap-10 lg:grid-cols-[0.88fr_1.12fr]">
           <div>
             <p className="mb-4 text-sm font-bold uppercase tracking-[0.2em] text-brand-red">
               The soul behind the fire
             </p>
-            <h2 className="font-display text-4xl font-bold leading-tight text-brand-brown md:text-6xl">
-              A pot can hold memory, place, and the next idea.
+            <h2 className="font-serif text-5xl font-semibold leading-tight text-brand-brown md:text-6xl">
+              Some stories begin with a business plan.
+              <br />
+              Ours began around a table.
             </h2>
           </div>
           <div className="grid gap-6 text-lg leading-8 text-brand-brown/80">
@@ -71,42 +74,53 @@ export default function HomePage() {
               href="/pages/about"
               className="w-fit border-b-2 border-brand-gold pb-1 text-sm font-bold uppercase tracking-wide text-brand-green"
             >
-              Read the story
+              The story behind SoulFire Soups
             </Link>
           </div>
         </Reveal>
       </section>
 
-      <section className="bg-brand-blush px-5 py-16 lg:px-8">
+      <section className="bg-brand-blush px-6 py-20 lg:px-8">
         <div className="mx-auto max-w-7xl">
           <Reveal className="mb-10 flex flex-col gap-4 md:flex-row md:items-end md:justify-between">
             <div>
+              <p className="mb-3 text-sm font-bold uppercase tracking-[0.2em] text-brand-brown/60">
+                Ordering is hosted on Square
+              </p>
               <p className="mb-3 text-sm font-bold uppercase tracking-[0.2em] text-brand-red">
                 Seasonal menu
               </p>
-              <h2 className="font-display text-4xl font-bold text-brand-brown md:text-5xl">
-                Bowls with a point of view.
+              <h2 className="font-serif text-5xl font-semibold text-brand-brown md:text-6xl">
+                Seasonal Menu
               </h2>
             </div>
             <ButtonLink href="/pages/menu" variant="secondary">
               Explore Menu
             </ButtonLink>
           </Reveal>
-          <div className="grid gap-px overflow-hidden border border-brand-brown/20 bg-brand-brown/20 md:grid-cols-2 lg:grid-cols-4">
-            {menuItems.map((item) => (
-              <Reveal key={item.name} className="bg-brand-cream p-6">
-                <div className="mb-8 flex items-center justify-between gap-4">
+          <div className="grid gap-6 md:grid-cols-3">
+            {menuItems.slice(0, 3).map((item) => (
+              <Reveal key={item.name} className="group overflow-hidden rounded-2xl bg-[#fbf6ed] shadow-sm">
+                <div className="aspect-square overflow-hidden">
+                  <Image
+                    src={item.image}
+                    alt={item.name}
+                    width={520}
+                    height={520}
+                    className="h-full w-full object-cover transition duration-500 group-hover:scale-[1.03]"
+                  />
+                </div>
+                <div className="p-6">
                   <span className="text-xs font-bold uppercase tracking-wide text-brand-red">
                     {item.tag}
                   </span>
-                  <span className="h-3 w-3 rounded-full bg-brand-gold" />
+                  <h3 className="mt-3 font-serif text-3xl font-semibold text-brand-brown">
+                    {item.name}
+                  </h3>
+                  <p className="mt-4 text-sm leading-7 text-brand-brown/75">
+                    {item.detail}
+                  </p>
                 </div>
-                <h3 className="font-display text-2xl font-bold text-brand-brown">
-                  {item.name}
-                </h3>
-                <p className="mt-4 text-sm leading-7 text-brand-brown/75">
-                  {item.detail}
-                </p>
               </Reveal>
             ))}
           </div>
