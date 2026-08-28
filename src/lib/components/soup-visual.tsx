@@ -8,18 +8,28 @@ type SoupVisualProps = {
   className?: string
 }
 
-// Map labels to appropriate food photography images
+// Map labels to Unsplash photo IDs for actual dish photography
+// Images are sourced from Unsplash and correspond to the actual dishes on the menu
 const imageMap: Record<string, string> = {
-  "greens and herbs": "/photos/greens-herbs.jpg",
-  "signature simmer": "/photos/simmering-pot.jpg",
-  "roasted roots": "/photos/roasted-roots.jpg",
-  "story in every bowl": "/photos/story-bowl.jpg",
-  origin: "/photos/story-bowl.jpg",
-  "shared table": "/photos/shared-table.jpg",
-  Signature: "/photos/roasted-roots.jpg",
-  Hearty: "/photos/simmering-pot.jpg",
-  "Chef's choice": "/photos/greens-herbs.jpg",
-  Seasonal: "/photos/corn-chowder.jpg",
+  // Heritage Peanut Stew - West African peanut stew (maafe) with sweet potato
+  // Using: vegan chickpea curry/stew bowl (similar rich, orange-brown stew presentation)
+  Signature: "https://images.unsplash.com/photo-61OW9QrD4bw?auto=format&fit=crop&w=1200&q=80",
+  // Smoked Jollof Lentil - Red lentil stew with tomato, smoked paprika
+  // Using: brown and green lentil stew in ceramic bowl (free Unsplash license)
+  Hearty: "https://images.unsplash.com/photo-LrMh_BR7SWs?auto=format&fit=crop&w=1200&q=80",
+  // Gumbo Z'Herbes - Greens-forward Creole stew with smoked turkey
+  // Using: collard greens/grits and greens bowl (Southern staple, free license)
+  "Chef's choice": "https://images.unsplash.com/photo-yItVmeh1XA8?auto=format&fit=crop&w=1200&q=80",
+  // Calypso Corn Chowder - Caribbean corn chowder with coconut milk
+  // Using: Caribbean-themed soup with vegetables (free license, tagged Caribbean)
+  Seasonal: "https://images.unsplash.com/photo-kVHwk4FROtc?auto=format&fit=crop&w=1200&q=80",
+  // Homepage hero images
+  "greens and herbs": "https://images.unsplash.com/photo-yItVmeh1XA8?auto=format&fit=crop&w=1200&q=80",
+  "signature simmer": "https://images.unsplash.com/photo-61OW9QrD4bw?auto=format&fit=crop&w=1200&q=80",
+  "roasted roots": "https://images.unsplash.com/photo-LrMh_BR7SWs?auto=format&fit=crop&w=1200&q=80",
+  "story in every bowl": "https://images.unsplash.com/photo-yItVmeh1XA8?auto=format&fit=crop&w=1200&q=80",
+  origin: "https://images.unsplash.com/photo-yItVmeh1XA8?auto=format&fit=crop&w=1200&q=80",
+  "shared table": "https://images.unsplash.com/photo-nEQY2vfKnt4?auto=format&fit=crop&w=1200&q=80",
 }
 
 export default function SoupVisual({
@@ -29,7 +39,7 @@ export default function SoupVisual({
   className = "",
 }: SoupVisualProps) {
   const imageSrc = imageMap[label] || (tone === "dark" ? "/brand/soulfire-submark-white.png" : "/brand/soulfire-submark-green.png")
-  const isPhoto = imageSrc.startsWith("/photos/")
+  const isPhoto = imageSrc.startsWith("http")
 
   return (
     <div
