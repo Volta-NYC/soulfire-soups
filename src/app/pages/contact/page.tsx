@@ -3,7 +3,7 @@ import { squareOrderUrl } from "@/lib/site-data"
 
 export default function ContactPage() {
   return (
-    <div className="bg-brand-cream px-5 py-16 lg:px-8">
+    <div className="paper-grain bg-brand-cream px-5 py-16 lg:px-8">
       <section className="brand-grain mx-auto grid max-w-7xl gap-10 lg:grid-cols-[0.9fr_1.1fr]">
         <div>
           <p className="mb-4 text-sm font-bold uppercase tracking-[0.2em] text-brand-red">

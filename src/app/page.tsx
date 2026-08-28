@@ -6,7 +6,7 @@ import { inspirations, menuItems, squareOrderUrl, values } from "@/lib/site-data
 
 export default function HomePage() {
   return (
-    <div>
+    <div className="paper-grain">
       <section className="brand-grain bg-brand-cream">
         <div className="mx-auto grid max-w-7xl items-center gap-12 px-5 pb-14 pt-28 lg:min-h-[760px] lg:grid-cols-[0.95fr_1.05fr] lg:px-8 lg:pt-32">
           <div className="min-w-0 max-w-[19rem] min-[430px]:max-w-2xl">

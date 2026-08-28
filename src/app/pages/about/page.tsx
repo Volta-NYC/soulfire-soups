@@ -5,7 +5,7 @@ import { squareOrderUrl } from "@/lib/site-data"
 
 export default function AboutPage() {
   return (
-    <div className="bg-brand-cream">
+    <div className="paper-grain bg-brand-cream">
       <section className="brand-grain mx-auto grid max-w-7xl items-center gap-10 px-5 py-16 lg:grid-cols-[0.9fr_1.1fr] lg:px-8">
         <div>
           <p className="mb-4 text-sm font-bold uppercase tracking-[0.2em] text-brand-red">
