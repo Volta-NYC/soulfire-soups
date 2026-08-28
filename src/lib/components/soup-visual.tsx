@@ -8,28 +8,24 @@ type SoupVisualProps = {
   className?: string
 }
 
-// Map labels to Unsplash photo IDs for actual dish photography
-// Images are sourced from Unsplash and correspond to the actual dishes on the menu
+// Map labels to local food photography images
+// Images correspond to the actual dishes on the SoulFire Soups menu
 const imageMap: Record<string, string> = {
-  // Heritage Peanut Stew - West African peanut stew (maafe) with sweet potato
-  // Using: vegan chickpea curry/stew bowl (similar rich, orange-brown stew presentation)
-  Signature: "https://images.unsplash.com/photo-61OW9QrD4bw?auto=format&fit=crop&w=1200&q=80",
-  // Smoked Jollof Lentil - Red lentil stew with tomato, smoked paprika
-  // Using: brown and green lentil stew in ceramic bowl (free Unsplash license)
-  Hearty: "https://images.unsplash.com/photo-LrMh_BR7SWs?auto=format&fit=crop&w=1200&q=80",
-  // Gumbo Z'Herbes - Greens-forward Creole stew with smoked turkey
-  // Using: collard greens/grits and greens bowl (Southern staple, free license)
-  "Chef's choice": "https://images.unsplash.com/photo-yItVmeh1XA8?auto=format&fit=crop&w=1200&q=80",
-  // Calypso Corn Chowder - Caribbean corn chowder with coconut milk
-  // Using: Caribbean-themed soup with vegetables (free license, tagged Caribbean)
-  Seasonal: "https://images.unsplash.com/photo-kVHwk4FROtc?auto=format&fit=crop&w=1200&q=80",
+  // Heritage Peanut Stew - West African peanut stew (maafe) with sweet potato, bird's eye chili
+  Signature: "/photos/heritage-peanut-stew.jpg",
+  // Smoked Jollof Lentil - Red lentil stew with tomato, smoked paprika, jollof-inspired seasoning
+  Hearty: "/photos/smoked-jollof-lentil.jpg",
+  // Gumbo Z'Herbes - Seven greens, smoked turkey, creole herbs
+  "Chef's choice": "/photos/gumbo-zherbes.jpg",
+  // Calypso Corn Chowder - Sweet corn, coconut milk, thyme, Caribbean spice
+  Seasonal: "/photos/calypso-corn-chowder.jpg",
   // Homepage hero images
-  "greens and herbs": "https://images.unsplash.com/photo-yItVmeh1XA8?auto=format&fit=crop&w=1200&q=80",
-  "signature simmer": "https://images.unsplash.com/photo-61OW9QrD4bw?auto=format&fit=crop&w=1200&q=80",
-  "roasted roots": "https://images.unsplash.com/photo-LrMh_BR7SWs?auto=format&fit=crop&w=1200&q=80",
-  "story in every bowl": "https://images.unsplash.com/photo-yItVmeh1XA8?auto=format&fit=crop&w=1200&q=80",
-  origin: "https://images.unsplash.com/photo-yItVmeh1XA8?auto=format&fit=crop&w=1200&q=80",
-  "shared table": "https://images.unsplash.com/photo-nEQY2vfKnt4?auto=format&fit=crop&w=1200&q=80",
+  "greens and herbs": "/photos/gumbo-zherbes.jpg",
+  "signature simmer": "/photos/heritage-peanut-stew.jpg",
+  "roasted roots": "/photos/smoked-jollof-lentil.jpg",
+  "story in every bowl": "/photos/gumbo-zherbes.jpg",
+  origin: "/photos/gumbo-zherbes.jpg",
+  "shared table": "/photos/shared-table.jpg",
 }
 
 export default function SoupVisual({
@@ -39,7 +35,7 @@ export default function SoupVisual({
   className = "",
 }: SoupVisualProps) {
   const imageSrc = imageMap[label] || (tone === "dark" ? "/brand/soulfire-submark-white.png" : "/brand/soulfire-submark-green.png")
-  const isPhoto = imageSrc.startsWith("http")
+  const isPhoto = imageSrc.startsWith("/photos/")
 
   return (
     <div
