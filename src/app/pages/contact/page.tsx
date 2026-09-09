@@ -1,9 +1,15 @@
 import ButtonLink from "@/lib/components/button-link"
+import type { Metadata } from "next"
 import { squareOrderUrl } from "@/lib/site-data"
+
+export const metadata: Metadata = {
+  title: "Contact | SoulFire Soups",
+  description: "Order current SoulFire Soups batches or ask about catering.",
+}
 
 export default function ContactPage() {
   return (
-    <div className="paper-grain bg-brand-cream px-5 py-16 lg:px-8">
+    <div className="paper-grain bg-brand-cream px-5 pb-16 pt-32 lg:px-8 lg:pt-40">
       <section className="brand-grain mx-auto grid max-w-7xl gap-10 lg:grid-cols-[0.9fr_1.1fr]">
         <div>
           <p className="mb-4 text-sm font-bold uppercase tracking-[0.2em] text-brand-red">

@@ -3,13 +3,15 @@
 import Image from "next/image"
 import Link from "next/link"
 import { usePathname } from "next/navigation"
-import { useEffect, useState } from "react"
+import { useEffect, useRef, useState } from "react"
 import { navItems, squareOrderUrl } from "@/lib/site-data"
 
 export default function Navbar() {
   const pathname = usePathname() || "/"
   const [open, setOpen] = useState(false)
   const [scrolled, setScrolled] = useState(false)
+  const menuRef = useRef<HTMLDivElement>(null)
+  const menuButtonRef = useRef<HTMLButtonElement>(null)
 
   useEffect(() => {
     const onScroll = () => setScrolled(window.scrollY > 12)
@@ -17,6 +19,22 @@ export default function Navbar() {
     window.addEventListener("scroll", onScroll)
     return () => window.removeEventListener("scroll", onScroll)
   }, [])
+
+  useEffect(() => {
+    if (!open) return
+
+    const firstLink = menuRef.current?.querySelector<HTMLAnchorElement>("a")
+    firstLink?.focus()
+
+    const onKeyDown = (event: KeyboardEvent) => {
+      if (event.key === "Escape") {
+        setOpen(false)
+        menuButtonRef.current?.focus()
+      }
+    }
+    window.addEventListener("keydown", onKeyDown)
+    return () => window.removeEventListener("keydown", onKeyDown)
+  }, [open])
 
   const elevated = scrolled || open
 
@@ -29,6 +47,7 @@ export default function Navbar() {
       }`}
     >
       <nav
+        aria-label="Primary navigation"
         className={`mx-auto flex max-w-7xl items-center justify-between px-5 transition duration-300 lg:px-8 ${
           elevated ? "min-h-[70px]" : "min-h-[92px]"
         }`}
@@ -70,6 +89,7 @@ export default function Navbar() {
         </div>
 
         <button
+          ref={menuButtonRef}
           type="button"
           className="inline-flex h-11 w-11 items-center justify-center rounded-full border border-current/20 lg:hidden"
           aria-expanded={open}
@@ -86,7 +106,7 @@ export default function Navbar() {
       </nav>
 
       {open && (
-        <div id="mobile-menu" className="border-t border-brand-brown/10 bg-brand-cream px-5 py-5 lg:hidden">
+        <div ref={menuRef} id="mobile-menu" className="border-t border-brand-brown/10 bg-brand-cream px-5 py-5 lg:hidden">
           <div className="mx-auto flex max-w-7xl flex-col gap-4 text-base font-bold">
             {navItems.map((item) => (
               <Link

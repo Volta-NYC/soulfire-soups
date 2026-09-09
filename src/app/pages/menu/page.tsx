@@ -1,7 +1,14 @@
 import ButtonLink from "@/lib/components/button-link"
+import type { Metadata } from "next"
 import Reveal from "@/lib/components/reveal"
 import SoupVisual from "@/lib/components/soup-visual"
 import { inspirations, menuItems, squareOrderUrl } from "@/lib/site-data"
+
+export const metadata: Metadata = {
+  title: "Seasonal Menu | SoulFire Soups",
+  description:
+    "Explore SoulFire's small-batch soups, rooted in Southern Black and Caribbean traditions and shaped by global flavors.",
+}
 
 export default function MenuPage() {
   return (
@@ -17,9 +24,9 @@ export default function MenuPage() {
         </div>
         <div className="grid content-start gap-6 text-lg leading-8 text-brand-brown/80">
           <p>
-            The menu shifts with ingredients, mood, and season. These featured
-            bowls show the SoulFire approach: rooted, layered, and made to
-            comfort without feeling ordinary.
+            The menu shifts with ingredients, mood, and season. Each bowl
+            carries the same care that started at the soup parties: an
+            intentional balance of flavor, topping, texture, and personality.
           </p>
           <ButtonLink href={squareOrderUrl} external>
             View Full Menu on Square
@@ -32,7 +39,14 @@ export default function MenuPage() {
           {menuItems.map((item, index) => (
             <Reveal key={item.name}>
               <article className={`grid gap-0 border-y border-brand-brown/18 bg-brand-blush lg:grid-cols-2 ${index % 2 === 1 ? "lg:[&>*:first-child]:order-2" : ""}`}>
-                <SoupVisual color={item.color} label={item.tag} className="min-h-[360px]" />
+                <SoupVisual
+                  color={item.color}
+                  label={item.tag}
+                  className="min-h-[360px]"
+                  image={item.image}
+                  alt={item.alt}
+                  priority={index === 0}
+                />
                 <div className="flex flex-col justify-center p-7 md:p-10 lg:p-12">
                   <p className="text-sm font-bold uppercase tracking-[0.18em] text-brand-red">
                     {item.tag}
@@ -63,7 +77,7 @@ export default function MenuPage() {
               Ingredients of influence
             </p>
             <h2 className="font-display text-4xl font-bold md:text-5xl">
-              A menu shaped by more than one pantry.
+              A menu shaped by more than one pantry, and more than one journey.
             </h2>
           </div>
           <div className="grid gap-4 sm:grid-cols-2">

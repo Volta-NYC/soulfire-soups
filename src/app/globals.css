@@ -10,6 +10,34 @@ body {
   scroll-behavior: smooth;
 }
 
+a,
+button {
+  -webkit-tap-highlight-color: transparent;
+}
+
+:focus-visible {
+  outline: 3px solid #cc2127;
+  outline-offset: 4px;
+}
+
+.skip-link {
+  position: fixed;
+  z-index: 100;
+  top: 0.75rem;
+  left: 0.75rem;
+  transform: translateY(-200%);
+  border-radius: 0.25rem;
+  background: #2a1a11;
+  padding: 0.75rem 1rem;
+  color: #fff8ef;
+  font-weight: 700;
+  transition: transform 160ms ease;
+}
+
+.skip-link:focus {
+  transform: translateY(0);
+}
+
 * {
   box-sizing: border-box;
 }
@@ -115,6 +143,7 @@ h4,
     linear-gradient(120deg, rgba(255, 248, 239, 0.08), transparent 34%),
     repeating-linear-gradient(90deg, rgba(255,255,255,0.035) 0 1px, transparent 1px 18px);
   pointer-events: none;
+  z-index: 1;
 }
 
 .soup-bowl {

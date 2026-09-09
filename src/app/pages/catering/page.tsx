@@ -1,7 +1,14 @@
 import ButtonLink from "@/lib/components/button-link"
+import type { Metadata } from "next"
 import Reveal from "@/lib/components/reveal"
 import SoupVisual from "@/lib/components/soup-visual"
 import { cateringMoments, cateringSteps, squareOrderUrl } from "@/lib/site-data"
+
+export const metadata: Metadata = {
+  title: "Catering | SoulFire Soups",
+  description:
+    "Bring SoulFire Soups to office lunches, family gatherings, community events, and small celebrations.",
+}
 
 export default function CateringPage() {
   return (
@@ -16,7 +23,9 @@ export default function CateringPage() {
           </h1>
           <p className="mt-6 max-w-xl text-lg leading-8 text-brand-brown/78">
             SoulFire can support larger-batch soup moments for office lunches,
-            family reunions, community tables, and small celebrations.
+            family reunions, community tables, and small celebrations. It is
+            the same spirit that made the Soup, Pudding & Pie Parties a yearly
+            tradition: good food makes room for people.
           </p>
           <div className="mt-8">
             <ButtonLink href={squareOrderUrl} external>
@@ -24,7 +33,14 @@ export default function CateringPage() {
             </ButtonLink>
           </div>
         </div>
-        <SoupVisual color="#366834" label="shared table" className="min-h-[430px]" />
+        <SoupVisual
+          color="#366834"
+          label="shared table"
+          className="min-h-[430px]"
+          image="/photos/shared-table.jpg"
+          alt="A table set for a communal meal"
+          priority
+        />
       </section>
 
       <section className="bg-brand-brown px-5 py-16 text-brand-blush lg:px-8">

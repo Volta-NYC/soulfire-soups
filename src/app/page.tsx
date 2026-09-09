@@ -2,7 +2,7 @@ import Link from "next/link"
 import ButtonLink from "@/lib/components/button-link"
 import Reveal from "@/lib/components/reveal"
 import SoupVisual from "@/lib/components/soup-visual"
-import { inspirations, menuItems, squareOrderUrl, values } from "@/lib/site-data"
+import { brandPromise, inspirations, menuItems, squareOrderUrl, values } from "@/lib/site-data"
 
 export default function HomePage() {
   return (
@@ -13,7 +13,7 @@ export default function HomePage() {
             <p className="mb-5 text-sm font-bold uppercase tracking-[0.2em] text-brand-gold">
               Small batch • soul-fired
             </p>
-            <h1 className="max-w-full font-display text-[2.72rem] font-bold leading-[0.98] text-[#c45f3d] min-[430px]:text-6xl md:text-7xl lg:text-[5.7rem]">
+            <h1 className="max-w-full font-display text-[2.72rem] font-bold leading-[0.98] text-[#c45f3d] min-[430px]:text-6xl md:text-7xl lg:text-[3.9rem]">
               <span className="block">Where</span>
               <span className="block">Food,</span>
               <span className="block">Culture,</span>
@@ -21,11 +21,10 @@ export default function HomePage() {
               <span className="block">Community Meet</span>
             </h1>
             <p className="mt-7 text-measure text-lg leading-8 text-brand-ink/76">
-              Every bowl has a story. Ours began with family traditions and
-              Sunday dinners, then grew through years of gathering friends,
-              family, and community around food. Today, SoulFire Soups creates
-              small-batch soups inspired by Southern Black and Caribbean
-              influences and the people who helped shape SoulFire.
+              Every bowl has a story. Ours began with a family sweet potato
+              pudding recipe, then grew through years of friends gathering to
+              cook, taste, debate, and share. Today, SoulFire makes small-batch
+              soups with comfort, choice, and connection at the center.
             </p>
             <div className="mt-9 flex flex-col gap-3 sm:flex-row">
               <ButtonLink href={squareOrderUrl} external>
@@ -41,20 +40,28 @@ export default function HomePage() {
             <div className="grid gap-4">
               <SoupVisual
                 color="#366834"
-                label="greens and herbs"
+                label="the craft of gathering"
                 className="min-h-52"
+                image="/photos/greens-herbs.jpg"
+                alt="Fresh greens and herbs used in SoulFire soups"
+                priority
               />
               <SoupVisual
                 color="#cc2127"
-                label="signature simmer"
+                label="a slow-built simmer"
                 className="min-h-[420px]"
+                image="/photos/simmering-pot.jpg"
+                alt="A pot of soup simmering slowly"
+                priority
               />
             </div>
             <div className="grid gap-4">
               <SoupVisual
                 color="#d99b2d"
-                label="roasted roots"
+                label="roots in every bowl"
                 className="min-h-56"
+                image="/photos/roasted-roots.jpg"
+                alt="Roasted vegetables prepared for soup"
               />
               <div className="border-y border-brand-brown/20 py-5">
                 <p className="text-xs font-bold uppercase tracking-[0.18em] text-brand-red">
@@ -94,6 +101,8 @@ export default function HomePage() {
                     color={item.color}
                     label={item.tag}
                     className="transition duration-300 group-hover:-translate-y-1"
+                    image={item.image}
+                    alt={item.alt}
                   />
                   <div className="border-t border-brand-brown/20 pt-5">
                     <p className="text-xs font-bold uppercase tracking-[0.18em] text-brand-red">
@@ -121,7 +130,14 @@ export default function HomePage() {
 
       <section className="section-shell bg-brand-cream">
         <Reveal className="mx-auto grid max-w-7xl gap-10 lg:grid-cols-[0.92fr_1.08fr]">
-          <SoupVisual color="#5a3e2c" label="story in every bowl" tone="light" className="min-h-[420px]" />
+          <SoupVisual
+            color="#5a3e2c"
+            label="a story in every bowl"
+            tone="light"
+            className="min-h-[420px]"
+            image="/photos/story-bowl.jpg"
+            alt="A finished bowl of SoulFire soup"
+          />
           <div className="self-center">
             <p className="mb-4 text-sm font-bold uppercase tracking-[0.2em] text-brand-red">
               The soul behind the fire
@@ -133,13 +149,14 @@ export default function HomePage() {
             </h2>
             <div className="mt-7 grid gap-5 text-lg leading-8 text-brand-brown/78">
               <p>
-                The business began with a love of creating soups and bringing
-                familiar ingredients together in ways that feel fresh,
-                comforting, and sometimes unexpected.
+              Before there was a business, there were Pudding & Pie Parties,
+              then annual soup tastings where friends voted, bragged, and
+              shared the single best spoonful from each pot.
               </p>
               <p>
-                Each batch is rooted in real ingredients and layered taste, with
-                tradition treated as a starting point for curiosity.
+              That ritual of one intentional taste still guides every bowl:
+              layered toppings, contrasting texture, and a little of the
+              cook's personality in the experience.
               </p>
             </div>
             <Link
@@ -162,8 +179,9 @@ export default function HomePage() {
               Familiar ingredients, fresh routes.
             </h2>
             <p className="mt-5 max-w-md text-brand-blush/76">
-              SoulFire draws thoughtfully from multiple culinary traditions,
-              building bowls that feel grounded, personal, and alive.
+              {brandPromise} Travel through Morocco, Zanzibar, South Africa,
+              Spain, Colombia, Belize, London, Italy, and Lisbon continues to
+              widen the palate behind each new batch.
             </p>
           </div>
           <div className="grid gap-px border border-brand-blush/20 bg-brand-blush/20 sm:grid-cols-2">
