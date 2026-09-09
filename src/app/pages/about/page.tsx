@@ -2,7 +2,7 @@ import type { Metadata } from "next"
 import ButtonLink from "@/lib/components/button-link"
 import Reveal from "@/lib/components/reveal"
 import SoupVisual from "@/lib/components/soup-visual"
-import { brandPromise, squareOrderUrl, storyChapters } from "@/lib/site-data"
+import { brandPromise, squareOrderUrl, stockImages, storyChapters } from "@/lib/site-data"
 
 export const metadata: Metadata = {
   title: "Our Story | SoulFire Soups",
@@ -38,8 +38,8 @@ export default function AboutPage() {
             color="#d99b2d"
             label="a gathering that became a tradition"
             className="min-h-[420px]"
-            image="/photos/shared-table.jpg"
-            alt="Friends gathered around a shared table"
+            image={stockImages.communityTable}
+            alt="A community gathered around a table with plates of food"
           />
           <div className="self-center text-lg leading-8 text-brand-blush/95">
             <p className="mb-4 text-sm font-bold uppercase tracking-[0.2em] text-brand-gold">
@@ -119,8 +119,8 @@ export default function AboutPage() {
             label="comfort, choice, connection"
             tone="light"
             className="min-h-[360px]"
-            image="/photos/corn-chowder.jpg"
-            alt="A bright bowl of corn chowder with fresh toppings"
+            image={stockImages.goldenBowl}
+            alt="A golden bowl of soup with crisp toppings"
           />
         </Reveal>
       </section>

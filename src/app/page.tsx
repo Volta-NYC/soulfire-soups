@@ -2,7 +2,7 @@ import Link from "next/link"
 import ButtonLink from "@/lib/components/button-link"
 import Reveal from "@/lib/components/reveal"
 import SoupVisual from "@/lib/components/soup-visual"
-import { brandPromise, inspirations, menuItems, squareOrderUrl, values } from "@/lib/site-data"
+import { brandPromise, inspirations, menuItems, squareOrderUrl, stockImages, values } from "@/lib/site-data"
 
 export default function HomePage() {
   return (
@@ -42,16 +42,16 @@ export default function HomePage() {
                 color="#366834"
                 label="the craft of gathering"
                 className="min-h-52"
-                image="/photos/greens-herbs.jpg"
-                alt="Fresh greens and herbs used in SoulFire soups"
+                image={stockImages.goldenBowl}
+                alt="A golden soup bowl with a generous garnish"
                 priority
               />
               <SoupVisual
                 color="#cc2127"
                 label="a slow-built simmer"
                 className="min-h-[420px]"
-                image="/photos/simmering-pot.jpg"
-                alt="A pot of soup simmering slowly"
+                image={stockImages.hero}
+                alt="A generous food spread with fresh ingredients"
                 priority
               />
             </div>
@@ -60,8 +60,8 @@ export default function HomePage() {
                 color="#d99b2d"
                 label="roots in every bowl"
                 className="min-h-56"
-                image="/photos/roasted-roots.jpg"
-                alt="Roasted vegetables prepared for soup"
+                image={stockImages.rusticSoup}
+                alt="A comforting soup bowl served with bread"
               />
               <div className="border-y border-brand-brown/20 py-5">
                 <p className="text-xs font-bold uppercase tracking-[0.18em] text-brand-red">
@@ -135,8 +135,8 @@ export default function HomePage() {
             label="a story in every bowl"
             tone="light"
             className="min-h-[420px]"
-            image="/photos/story-bowl.jpg"
-            alt="A finished bowl of SoulFire soup"
+            image={stockImages.sharedTable}
+            alt="Friends gathered at a table full of food and candles"
           />
           <div className="self-center">
             <p className="mb-4 text-sm font-bold uppercase tracking-[0.2em] text-brand-red">

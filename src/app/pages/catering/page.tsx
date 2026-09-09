@@ -2,7 +2,7 @@ import ButtonLink from "@/lib/components/button-link"
 import type { Metadata } from "next"
 import Reveal from "@/lib/components/reveal"
 import SoupVisual from "@/lib/components/soup-visual"
-import { cateringMoments, cateringSteps, squareOrderUrl } from "@/lib/site-data"
+import { cateringMoments, cateringSteps, squareOrderUrl, stockImages } from "@/lib/site-data"
 
 export const metadata: Metadata = {
   title: "Catering | SoulFire Soups",
@@ -37,8 +37,8 @@ export default function CateringPage() {
           color="#366834"
           label="shared table"
           className="min-h-[430px]"
-          image="/photos/shared-table.jpg"
-          alt="A table set for a communal meal"
+          image={stockImages.sharedTable}
+          alt="Friends sharing food at a candlelit table"
           priority
         />
       </section>

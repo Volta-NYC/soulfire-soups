@@ -1,6 +1,7 @@
 import ButtonLink from "@/lib/components/button-link"
 import type { Metadata } from "next"
-import { squareOrderUrl } from "@/lib/site-data"
+import SoupVisual from "@/lib/components/soup-visual"
+import { squareOrderUrl, stockImages } from "@/lib/site-data"
 
 export const metadata: Metadata = {
   title: "Contact | SoulFire Soups",
@@ -10,7 +11,7 @@ export const metadata: Metadata = {
 export default function ContactPage() {
   return (
     <div className="paper-grain bg-brand-cream px-5 pb-16 pt-32 lg:px-8 lg:pt-40">
-      <section className="brand-grain mx-auto grid max-w-7xl gap-10 lg:grid-cols-[0.9fr_1.1fr]">
+      <section className="brand-grain mx-auto grid max-w-7xl gap-10 lg:grid-cols-[0.8fr_1.2fr]">
         <div>
           <p className="mb-4 text-sm font-bold uppercase tracking-[0.2em] text-brand-red">
             Contact
@@ -19,19 +20,29 @@ export default function ContactPage() {
             Need soup for your table?
           </h1>
         </div>
-        <div className="border-y border-brand-brown/20 py-8">
-          <p className="text-lg leading-8 text-brand-brown/75">
-            Order current batches through Square. For catering, seasonal
-            questions, or special requests, use the Square page as the most
-            current point of contact until a dedicated inbox is confirmed.
-          </p>
-          <div className="mt-8 flex flex-col gap-3 sm:flex-row">
-            <ButtonLink href={squareOrderUrl} external>
-              Order Online
-            </ButtonLink>
-            <ButtonLink href="/pages/catering" variant="secondary">
-              Explore Catering
-            </ButtonLink>
+        <div className="grid gap-6">
+          <SoupVisual
+            color="#cc2127"
+            label="a bowl is waiting"
+            className="min-h-[250px]"
+            image={stockImages.rusticSoup}
+            alt="A warm bowl of soup served with bread"
+            priority
+          />
+          <div className="border-y border-brand-brown/20 py-6">
+            <p className="text-lg leading-8 text-brand-brown/85">
+              Order current batches through Square. For catering, seasonal
+              questions, or special requests, use the Square page as the most
+              current point of contact until a dedicated inbox is confirmed.
+            </p>
+            <div className="mt-8 flex flex-col gap-3 sm:flex-row">
+              <ButtonLink href={squareOrderUrl} external>
+                Order Online
+              </ButtonLink>
+              <ButtonLink href="/pages/catering" variant="secondary">
+                Explore Catering
+              </ButtonLink>
+            </div>
           </div>
         </div>
       </section>

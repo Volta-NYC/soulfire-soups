@@ -3,6 +3,17 @@ export const squareOrderUrl = "https://soulfiresoups.square.site/"
 export const brandPromise =
   "Soups inspired by Southern Black and Caribbean food traditions, shaped by travel, friendship, and the joy of gathering."
 
+// Free-to-use stock photography from Unsplash, selected for warmth, food detail,
+// and the shared-table energy at the heart of SoulFire's story.
+export const stockImages = {
+  hero: "https://images.unsplash.com/photo-1679735386144-7c7a14f7e4a4?auto=format&fit=crop&w=1800&q=85",
+  goldenBowl: "https://images.unsplash.com/photo-1783153978844-3d4dbbc06f94?auto=format&fit=crop&w=1400&q=85",
+  rusticSoup: "https://images.unsplash.com/photo-1699005575488-49ebcecdc794?auto=format&fit=crop&w=1400&q=85",
+  noodleSoup: "https://images.unsplash.com/photo-1703797967081-924141d53d11?auto=format&fit=crop&w=1400&q=85",
+  sharedTable: "https://images.unsplash.com/photo-1771837602933-c1cc6293702b?auto=format&fit=crop&w=1800&q=85",
+  communityTable: "https://images.unsplash.com/photo-1721180672611-eb0489be150f?auto=format&fit=crop&w=1800&q=85",
+}
+
 export const navItems = [
   { href: "/", label: "Home" },
   { href: "/pages/menu", label: "Menu" },
@@ -20,8 +31,8 @@ export const menuItems = [
     dietary: "Vegan and gluten-free",
     detail:
       "Roasted peanuts, sweet potatoes, greens, aromatics, and a gentle chile warmth. Vegan and gluten-free.",
-    image: "/photos/heritage-peanut-stew.jpg",
-    alt: "Heritage Peanut Stew topped with greens and roasted peanuts",
+    image: stockImages.goldenBowl,
+    alt: "A golden bowl of soup finished with nuts and fresh herbs",
   },
   {
     name: "Smoked Jollof Lentil",
@@ -31,8 +42,8 @@ export const menuItems = [
     dietary: "Plant-forward",
     detail:
       "Split red lentils simmered with tomato, ginger, smoked paprika, and jollof-inspired seasoning.",
-    image: "/photos/smoked-jollof-lentil.jpg",
-    alt: "Smoked Jollof Lentil soup with herbs and a spoon",
+    image: stockImages.rusticSoup,
+    alt: "A hearty bowl of soup served with crusty bread",
   },
   {
     name: "Gumbo Z'Herbes",
@@ -42,8 +53,8 @@ export const menuItems = [
     dietary: "Contains smoked turkey",
     detail:
       "A greens-forward New Orleans classic with smoked turkey, herbs, and slow-built creole depth.",
-    image: "/photos/gumbo-zherbes.jpg",
-    alt: "Gumbo Z'Herbes with greens and herbs",
+    image: stockImages.noodleSoup,
+    alt: "A deep bowl of soup on a rustic wooden table",
   },
   {
     name: "Calypso Corn Chowder",
@@ -53,8 +64,8 @@ export const menuItems = [
     dietary: "Seasonal batch",
     detail:
       "Sweet corn, coconut milk, scallion, thyme, and warming Caribbean spice in a sunny, creamy bowl.",
-    image: "/photos/calypso-corn-chowder.jpg",
-    alt: "Calypso Corn Chowder finished with herbs",
+    image: stockImages.hero,
+    alt: "A generous food spread with fresh herbs and layered ingredients",
   },
 ]
 
